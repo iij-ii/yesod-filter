@@ -2,3 +2,16 @@ version: '3'
 services:
   dev:
     build: .
+    depends_on:
+      - db
+    environment:
+      TEST_DB_HOST: db
+  db:
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_USER: mysql_test
+      MYSQL_PASSWORD: mysql_test
+      MYSQL_DATABASE: mysql_test
+    ports:
+      - 3306:3306

@@ -47,7 +47,7 @@ test-suite yesod-filter-test
                      , hspec
                      , monad-logger
                      , persistent
-                     , persistent-sqlite
+                     , persistent-mysql
                      , time
                      , wai-extra
                      , yesod-core
