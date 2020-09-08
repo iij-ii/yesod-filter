@@ -41,13 +41,14 @@ test-suite yesod-filter-test
   hs-source-dirs:      test
   ghc-options:         -Wall
   build-depends:       base >= 4.7 && < 5
+                     , bytestring
                      , classy-prelude
                      , classy-prelude-yesod
                      , data-default
                      , hspec
                      , monad-logger
                      , persistent
-                     , persistent-sqlite
+                     , persistent-postgresql
                      , time
                      , wai-extra
                      , yesod-core

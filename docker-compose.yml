@@ -2,3 +2,15 @@ version: '3'
 services:
   dev:
     build: .
+    depends_on:
+      - db
+    environment:
+      TEST_DB_HOST: db
+  db:
+    image: postgres:12
+    environment:
+      POSTGRES_USER: postgres_test
+      POSTGRES_PASSWORD: postgres_test
+      POSTGRES_DB: postgres_test
+    ports:
+      - 5432:5432
