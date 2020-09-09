@@ -3,7 +3,7 @@ sudo: false
 language: generic
 
 before_install:
-  - docker-compose build --build-arg BASE_IMAGE=kyotsuya/yesod-filter-test:lts-16.13
+  - make build
 
 script:
-  - docker-compose run --rm dev stack test
+  - make test
