@@ -2,7 +2,7 @@ ARG GHC_VER
 FROM haskell:${GHC_VER}
 
 WORKDIR /build
-ENV PATH=/root/.local/bin:$PATH LC_ALL=C.UTF-8
+ENV LC_ALL=C.UTF-8
 ARG RESOLVER
 RUN stack --resolver ${RESOLVER} new dummy-project yesodweb/simple \
  && cd dummy-project \
