@@ -1,3 +1,7 @@
+branches:
+  only:
+  - add-ci-settings
+
 sudo: false
 
 language: generic
