@@ -1,0 +1,9 @@
+sudo: false
+
+language: generic
+
+before_install:
+  - make build
+
+script:
+  - make test
