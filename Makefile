@@ -2,7 +2,8 @@ PROJECT := $(shell basename $(CURDIR))
 BRANCH := $(shell git rev-parse --abbrev-ref HEAD)
 GHC_VER := 8.8
 RESOLVER := lts-16.13
-BASE_IMAGE := $(PROJECT)-test-base:$(RESOLVER)
+NAMESPACE := kyotsuya
+BASE_IMAGE := $(NAMESPACE)/$(PROJECT)-test:$(RESOLVER)
 export COMPOSE_PROJECT_NAME := $(PROJECT)-$(BRANCH)
 
 .PHONY: env
@@ -11,6 +12,7 @@ env:
 	@echo "BRANCH=$(BRANCH)"
 	@echo "GHC_VER=$(GHC_VER)"
 	@echo "RESOLVER=$(RESOLVER)"
+	@echo "NAMESPACE=$(NAMESPACE)"
 	@echo "BASE_IMAGE=$(BASE_IMAGE)"
 	@echo "COMPOSE_PROJECT_NAME=$(COMPOSE_PROJECT_NAME)"
 
@@ -21,6 +23,10 @@ base:
 .PHONY: base-bash
 base-bash:
 	docker run -it --rm $(BASE_IMAGE) /bin/bash
+
+.PHONY: base-push
+base-push:
+	docker push $(BASE_IMAGE)
 
 .PHONY: build
 build:
