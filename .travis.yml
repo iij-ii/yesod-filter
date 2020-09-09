@@ -1,13 +1,9 @@
-branches:
-  only:
-  - add-ci-settings
-
 sudo: false
 
 language: generic
 
 before_install:
-  - docker build -t yesod-filter-master_dev:latest .
+  - docker-compose build --build-arg BASE_IMAGE=kyotsuya/yesod-filter-test:lts-16.13
 
 script:
-  - docker run -it --rm yesod-filter-master_dev:latest stack test
+  - docker-compose run --rm dev stack test
