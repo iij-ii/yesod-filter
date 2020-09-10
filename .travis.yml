@@ -1,8 +1,4 @@
-sudo: false
-
-language: generic
-
-before_install:
+before_script:
   - make build
 
 script:
