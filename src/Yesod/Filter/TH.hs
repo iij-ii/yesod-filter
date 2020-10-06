@@ -6,22 +6,22 @@ module Yesod.Filter.TH
     , mkFilters
     , mkSelectOpts
     -- Types
-    , FilterOp (..)
-    , FilterParam (..)
-    , FilterDef (..)
-    , Filtering (..)
-    , SortDirection (..)
-    , SortOrdering (..)
-    , Sorting (..)
-    , PageOffset (..)
-    , PageLimit (..)
-    , Pagination (..)
     , Options (..)
-    , defaultFilterParams
+    , Filtering (..)
+    , FilterDef (..)
+    , FilterParam (..)
+    , FilterOp (..)
+    , Sorting (..)
+    , SortOrdering (..)
+    , SortDirection (..)
+    , Pagination (..)
+    , PageLimit (..)
+    , PageOffset (..)
+    , defaultOptions
     , defaultFiltering
+    , defaultFilterParams
     , defaultSorting
     , defaultPagination
-    , defaultOptions
     -- for testing
     , mkToFilterValueInstances
     , availableFiltersE
@@ -47,13 +47,16 @@ import           Yesod.Filter.Types
 
 
 -- ExpQ: [| [Filter record] |]
+-- | Generates the list of `Filter`.
 mkFilters :: ExpQ
 mkFilters = [| filtersFromGetParams |]
 
 -- ExpQ: [| [SelectOpt record] |]
+-- | Generates the list of `SelectOpt`.
 mkSelectOpts :: ExpQ
 mkSelectOpts = [| selectOptsFromGetParams |]
 
+-- | Generates the function that creates the list of `Filter` and the list of `SelectOpt` from query parameters.
 mkFilterGenerator :: Text -> Options -> DecsQ
 mkFilterGenerator model options = concat <$> sequence
     [ mkToFilterValueInstances model
