@@ -77,7 +77,7 @@ $ curl -s "http://localhost:3000/pets" | jq .
   }
 ]
 
-# Filter: WHERE AGE >= 3
+# Filter: WHERE AGE > 3
 $ curl -s "http://localhost:3000/pets?age__gt=3" | jq .
 [
   {
