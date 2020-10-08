@@ -24,7 +24,7 @@ library
   build-depends:       base >= 4.7 && < 5
                      , persistent
                      , template-haskell
-                     , text
+                     , text >= 1.2.4
                      , time >= 1.9
                      , yesod-core
                      , yesod-persistent
@@ -45,7 +45,7 @@ test-suite yesod-filter-test
                      , persistent-template
                      , QuickCheck
                      , template-haskell
-                     , text
+                     , text >= 1.2.4
                      , time >= 1.9
                      , yesod-filter
                      , yesod-persistent
