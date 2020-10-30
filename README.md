@@ -1,6 +1,6 @@
 # yesod-filter
 
-[![Build Status](https://travis-ci.org/iij-ii/yesod-filter.svg?branch=master)](https://travis-ci.org/iij-ii/yesod-filter)
+[![Build Status](https://travis-ci.com/iij-ii/yesod-filter.svg?branch=master)](https://travis-ci.com/iij-ii/yesod-filter)
 
 yesod-filter is a library that automatically generates [Filter](https://hackage.haskell.org/package/persistent-2.10.5.2/docs/Database-Persist-Types.html#t:Filter) and [SelectOpt](https://hackage.haskell.org/package/persistent-2.10.5.2/docs/Database-Persist-Types.html#t:SelectOpt) from URL query string.
 yesod-filter is inspired by [django-filter](https://github.com/carltongibson/django-filter).
